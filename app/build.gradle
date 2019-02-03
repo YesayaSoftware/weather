@@ -1,0 +1,101 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: "kotlin-kapt"
+
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "software.yesaya.weather"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.compileSdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion '28.0.3'
+}
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:${versions.appcompat}"
+
+    // Navigation
+    implementation "android.arch.navigation:navigation-fragment:${versions.navigation}"
+    implementation "android.arch.navigation:navigation-ui:${versions.navigation}"
+    implementation "android.arch.navigation:navigation-fragment-ktx:${versions.navigation}"
+    implementation "android.arch.navigation:navigation-ui-ktx:${versions.navigation}"
+    implementation "androidx.core:core-ktx:${versions.androidx}"
+    implementation "androidx.constraintlayout:constraintlayout:${versions.constraint}"
+
+    // Room
+    implementation "androidx.room:room-runtime:${versions.room}"
+    implementation "androidx.legacy:legacy-support-v4:${versions.legacy}"
+    implementation "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}"
+    implementation "androidx.constraintlayout:constraintlayout:${versions.constraint}"
+    implementation "com.android.support.constraint:constraint-layout:${versions.constraints}"
+    implementation "androidx.legacy:legacy-support-v4:${versions.legacy}"
+    implementation "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}"
+    kapt "androidx.room:room-compiler:${versions.room}"
+
+    // Gson
+    implementation "com.google.code.gson:gson:${versions.gson}"
+
+    // Kotlin Android Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinx}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.kotlinx}"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${versions.coroutinesAdapter}"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}"
+    kapt "androidx.lifecycle:lifecycle-compiler:${versions.lifecycle}"
+
+    // Kodein
+    implementation "org.kodein.di:kodein-di-generic-jvm:${versions.kodein}"
+    implementation "org.kodein.di:kodein-di-framework-android-x:${versions.kodein}"
+
+    // Better dateTime-time support even on older Android versions
+    implementation "com.jakewharton.threetenabp:threetenabp:${versions.threetenabp}"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:${versions.glide}"
+    kapt "com.github.bumptech.glide:compiler:${versions.glide}"
+
+    // Groupie RecyclerView
+    implementation "com.xwray:groupie:${versions.groupie}"
+    implementation "com.xwray:groupie-kotlin-android-extensions:${versions.groupie}"
+
+    // Preference
+    implementation "androidx.preference:preference:${versions.preference}"
+
+    // WeatherLocation
+    implementation "com.google.android.gms:play-services-location:${versions.gms}"
+
+    // New Material Design
+    implementation "com.google.android.material:material:${versions.material}"
+    testImplementation "junit:junit:${versions.junit}"
+    androidTestImplementation "androidx.test:runner:${versions.atsl}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${versions.espresso}"
+}
