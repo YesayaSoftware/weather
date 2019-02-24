@@ -2,17 +2,17 @@ package software.yesaya.weather.ui.weather.future.list
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import software.yesaya.weather.R
-import software.yesaya.weather.data.db.unitlocalized.future.UnitSpecificSimpleFutureWeatherEntry
+import software.yesaya.weather.data.db.unitlocalized.future.list.UnitSpecificSimpleFutureWeatherEntry
 import software.yesaya.weather.ui.base.ScopedFragment
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
@@ -22,6 +22,8 @@ import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
 import org.kodein.di.generic.instance
+import org.threeten.bp.LocalDate
+import software.yesaya.weather.data.db.LocalDateConverter
 
 class FutureListWeatherFragment : ScopedFragment(), KodeinAware {
 
@@ -88,8 +90,17 @@ class FutureListWeatherFragment : ScopedFragment(), KodeinAware {
         }
 
         groupAdapter.setOnItemClickListener { item, view ->
-            Toast.makeText(this@FutureListWeatherFragment.context, "Clicked", Toast.LENGTH_SHORT).show()
+            (item as? FutureWeatherItem)?.let {
+                showWeatherDetail(it.weatherEntry.date, view)
+            }
         }
+    }
+
+    private fun showWeatherDetail(date : LocalDate, view: View) {
+       val datestring = LocalDateConverter.dateToString(date)!!
+        val actionDetail = FutureListWeatherFragmentDirections.actionDetail(datestring)
+
+        Navigation.findNavController(view).navigate(actionDetail)
     }
 
 }

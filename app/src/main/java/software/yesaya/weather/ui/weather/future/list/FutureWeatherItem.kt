@@ -1,8 +1,8 @@
 package software.yesaya.weather.ui.weather.future.list
 
 import software.yesaya.weather.R
-import software.yesaya.weather.data.db.unitlocalized.future.MetricSimpleFutureWeatherEntry
-import software.yesaya.weather.data.db.unitlocalized.future.UnitSpecificSimpleFutureWeatherEntry
+import software.yesaya.weather.data.db.unitlocalized.future.list.MetricSimpleFutureWeatherEntry
+import software.yesaya.weather.data.db.unitlocalized.future.list.UnitSpecificSimpleFutureWeatherEntry
 import software.yesaya.weather.internal.glide.GlideApp
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder

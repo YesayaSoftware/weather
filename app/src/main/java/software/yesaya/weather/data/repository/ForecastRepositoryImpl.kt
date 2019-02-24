@@ -6,7 +6,7 @@ import software.yesaya.weather.data.db.FutureWeatherDao
 import software.yesaya.weather.data.db.WeatherLocationDao
 import software.yesaya.weather.data.db.entity.WeatherLocation
 import software.yesaya.weather.data.db.unitlocalized.current.UnitSpecificCurrentWeatherEntry
-import software.yesaya.weather.data.db.unitlocalized.future.UnitSpecificSimpleFutureWeatherEntry
+import software.yesaya.weather.data.db.unitlocalized.future.list.UnitSpecificSimpleFutureWeatherEntry
 import software.yesaya.weather.data.network.FORECAST_DAYS_COUNT
 import software.yesaya.weather.data.network.WeatherNetworkDataSource
 import software.yesaya.weather.data.network.response.CurrentWeatherResponse
@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.threeten.bp.LocalDate
 import org.threeten.bp.ZonedDateTime
+import software.yesaya.weather.data.db.unitlocalized.future.detail.UnitSpecificDetailFutureWeatherEntry
 import java.util.*
 
 class ForecastRepositoryImpl(
@@ -55,6 +56,17 @@ class ForecastRepositoryImpl(
             initWeatherData()
             return@withContext if (metric) futureWeatherDao.getSimpleWeatherForecastsMetric(startDate)
             else futureWeatherDao.getSimpleWeatherForecastsImperial(startDate)
+        }
+    }
+
+    override suspend fun getFutureWeatherByDate(
+        date: LocalDate,
+        metric: Boolean
+    ): LiveData<out UnitSpecificDetailFutureWeatherEntry> {
+        return withContext(Dispatchers.IO) {
+            initWeatherData()
+            return@withContext if (metric) futureWeatherDao.getDetailWeatherByDateMetric(date)
+            else futureWeatherDao.getDetailWeatherByDateImperial(date)
         }
     }
 

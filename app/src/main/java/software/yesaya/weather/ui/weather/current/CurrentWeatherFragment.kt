@@ -110,5 +110,4 @@ class CurrentWeatherFragment : ScopedFragment(), KodeinAware {
         val unitAbbreviation = chooseLocalizedUnitAbbreviation("km", "mi.")
         textView_visibility.text = "Visibility: $visibilityDistance $unitAbbreviation"
     }
-
 }
