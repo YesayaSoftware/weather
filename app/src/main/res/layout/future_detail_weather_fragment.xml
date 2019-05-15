@@ -80,7 +80,7 @@
             tools:text="Patchy rain possible" />
 
     <TextView
-            android:id="@+id/textView_wind"
+            android:id="@+id/tv__wind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -109,7 +109,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.031"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_wind"
+            app:layout_constraintTop_toBottomOf="@+id/tv__wind"
             app:layout_constraintVertical_bias="0.0"
             tools:text="Precipitation: 5 mm" />
 

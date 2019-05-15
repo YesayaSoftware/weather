@@ -114,4 +114,5 @@ dependencies {
     testImplementation "junit:junit:${versions.junit}"
     androidTestImplementation "androidx.test:runner:${versions.atsl}"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${versions.espresso}"
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }

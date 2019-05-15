@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Weather</string>
+    <string name="loading">Loading</string>
+    <string name="condition_icon">Condition Icon</string>
+    <string name="partly_cloudy">Partly Cloudy</string>
+    <string name="feels_like_37_7_c">Feels like 37.7 C</string>
+    <string name="_29_0_c">29.0 C</string>
+    <string name="dar_es_salaam">Dar es Salaam</string>
+    <string name="wind">Wind</string>
+    <string name="precipitation">Precipitation</string>
+    <string name="visibility">Visibility</string>
+    <string name="ene_20_2_kph">ENE, 20.2 Kph</string>
+    <string name="_0_1_mm">0.1 mm</string>
+    <string name="_10_0_km">10.0 km</string>
 </resources>

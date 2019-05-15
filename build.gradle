@@ -4,7 +4,7 @@ buildscript {
     ext.versions = [
             'minSdk'            : 21,
             'compileSdk'        : 28,
-            'androidPlugin'     : '3.3.1',
+            'androidPlugin'     : '3.4.0',
             'androidx'          : '1.0.1',
             'preference'        : '1.0.0',
             'appcompat'         : '1.0.2',
